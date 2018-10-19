@@ -1,2 +1,4 @@
 # 0Redfeather.github.io
-Hopefully this will be the area that our team will be able ot work on for our museum app website
+
+
+This project will map various locations important to the Marvel Universe in New York City
