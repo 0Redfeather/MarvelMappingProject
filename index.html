@@ -67,7 +67,7 @@
         <h2 class="text-center">THE MAP</h2>
         <hr class="star-primary">
    <div id='map' style='width: 1100px; height: 900px;'></div>
-        
+
         <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoiMHJlZGZlYXRoZXIiLCJhIjoiY2puZzVlYTFmNDZ6bjN3cW8xMHAwNG53NSJ9.hQc74nd7nsRsbm_2ZWB8sw';
 const map = new mapboxgl.Map({
@@ -76,10 +76,32 @@ style: 'mapbox://styles/0redfeather/cjnq9xxfe0vcx2spl9snvquqi',
 center: [-73.943395, 40.740066],
 zoom: 11.7
 });
-</script>
-        
 
-    
+//Attempting to Load popups onto the map
+
+map.on('click', function(e) {
+  var features = map.queryRenderedFeatures(e.point, {
+    layers: ['marvel-map-data'] // replace this with the name of the layer
+  });
+
+  if (!features.length) {
+    return;
+  }
+
+  var feature = features[0];
+
+  var popup = new mapboxgl.Popup({ offset: [0, -15] })
+    .setLngLat(feature.geometry.coordinates)
+    .setHTML('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.description + '</p>')
+    .setLngLat(feature.geometry.coordinates)
+    .addTo(map);
+});
+
+
+</script>
+
+
+
 <!-- About Section -->
     <section class="success" id="about">
       <div class="container">
@@ -88,7 +110,7 @@ zoom: 11.7
         <div class="row">
           <div>
               <center><p></p></center><br>
-              
+
       </div>
           </div>
           </section>
