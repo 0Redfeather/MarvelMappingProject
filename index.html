@@ -92,13 +92,13 @@ map.on('click', function(e) {
   //var link = feature.properties.link
   //var marker = L.marker([34.063298, -118.280126]) .addTo(map).bindPopup("<b>Blah blah Village</b><a href="http://www.cnn.com">Test</a>").openPopup();
   //.setHTML('<h3><a href="' + feature.properties.link + '">' + feature.properties.Company + '</a></h3>)'
-  //<img src="pic_trulli.jpg" alt="Italian Trulli">
+  //<img src="pic_trulli.jpg" alt="Italian Trulli" style="width:500px;height:600px;">'>
 
   var feature = features[0];
 
   var popup = new mapboxgl.Popup({ offset: [0, -15] })
     .setLngLat(feature.geometry.coordinates)
-    .setHTML('<h5>' + feature.properties.title + '</h6><p>' + feature.properties.description  + '</p>' + '<br>' + '<img src="' + feature.properties.img + '" alt="' + feature.properties.title +'">' + '<p><a href="' + feature.properties.link + '">' + feature.properties.title + '</a></p>')
+    .setHTML('<h5>' + feature.properties.title + '</h6><p>' + feature.properties.description  + '</p>' + '<br>' + '<img src="' + feature.properties.img + '" alt="' + feature.properties.title + '" style="width:500px;height:600px;">' + '<p><a href="' + feature.properties.link + '">' + feature.properties.title + '</a></p>')
     .setLngLat(feature.geometry.coordinates)
     .addTo(map);
 
