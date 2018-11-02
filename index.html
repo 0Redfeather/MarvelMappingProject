@@ -67,10 +67,6 @@
         <h2 class="text-center">THE MAP</h2>
         <hr class="star-primary">
    <div id='map' style='width: 1400px; height: 900px;'></div>
-        <style>
-        body { margin:0; padding:0; }
-        #map { position:absolute; top:0; bottom:0; width:100%; }
-    </style>
 
         <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoiMHJlZGZlYXRoZXIiLCJhIjoiY2puZzVlYTFmNDZ6bjN3cW8xMHAwNG53NSJ9.hQc74nd7nsRsbm_2ZWB8sw';
@@ -102,7 +98,7 @@ map.on('click', function(e) {
 
   var popup = new mapboxgl.Popup({ offset: [0, -15] })
     .setLngLat(feature.geometry.coordinates)
-    .setHTML('<h5>' + feature.properties.title + '</h6><p>' + feature.properties.description  + '</p>' + '<br>' + '<img src="' + feature.properties.img + '" alt="' + feature.properties.title + '" style="width:50px;height:50px;">' + '<p><a href="' + feature.properties.link + '">' + feature.properties.title + '</a></p>')
+    .setHTML('<h5>' + feature.properties.title + '</h5>' + '<br>' + '<img src="' + feature.properties.img + '" alt="' + feature.properties.title + '" style="width:20px;height:20px;">' + '<p>' feature.properties.description  + '</p>' + '<p><a href="' + feature.properties.link + '">' + feature.properties.title + '</a></p>')
     .setLngLat(feature.geometry.coordinates)
     .addTo(map);
 
