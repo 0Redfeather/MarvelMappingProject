@@ -88,13 +88,20 @@ map.on('click', function(e) {
     return;
   }
 
+  //Possible code for the job
+  //var link = feature.properties.link
+  //var marker = L.marker([34.063298, -118.280126]) .addTo(map).bindPopup("<b>Blah blah Village</b><a href="http://www.cnn.com">Test</a>").openPopup();
+  //.setHTML('<h3><a href="' + feature.properties.link + '">' + feature.properties.Company + '</a></h3>)'
+
+
   var feature = features[0];
 
   var popup = new mapboxgl.Popup({ offset: [0, -15] })
     .setLngLat(feature.geometry.coordinates)
-    .setHTML('<h5>' + feature.properties.title + '</h6><p>' + feature.properties.description + '</p><p>' + feature.properties.link + '</p>')
+    .setHTML('<h5>' + feature.properties.title + '</h6><p>' + feature.properties.description  + '<h3><a href="' + feature.properties.link + '">')
     .setLngLat(feature.geometry.coordinates)
     .addTo(map);
+
 });
 
 
@@ -106,7 +113,7 @@ map.on('click', function(e) {
     <section class="success" id="about">
       <div class="container">
         <h2 class="text-center">About</h2>
-        <hr class="star-light">
+        <hr class="star-primary">
           <div class="row">
           <div>
             <center><p>This project maps locations from the Marvel Cinematic and Television Universe in New York.</p>
