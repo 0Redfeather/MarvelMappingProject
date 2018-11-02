@@ -66,7 +66,6 @@
       <div class="container">
         <h2 class="text-center">THE MAP</h2>
         <hr class="star-primary">
-   <div id='map' style='width: 1100px; height: 900px;'></div>
 
         <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoiMHJlZGZlYXRoZXIiLCJhIjoiY2puZzVlYTFmNDZ6bjN3cW8xMHAwNG53NSJ9.hQc74nd7nsRsbm_2ZWB8sw';
@@ -77,7 +76,14 @@ center: [-73.943395, 40.740066],
 zoom: 10.2
 });
 
-//Attempting to Load popups onto the map
+
+           </script>
+<<<<<<< HEAD
+        </div>
+=======
+      </div>
+>>>>>>> 21156bea90a94310db23b6a701a1c2923370987b
+       </section>
 
 map.on('click', function(e) {
   var features = map.queryRenderedFeatures(e.point, {
@@ -88,17 +94,11 @@ map.on('click', function(e) {
     return;
   }
 
-  //Possible code for the job
-  //var link = feature.properties.link
-  //var marker = L.marker([34.063298, -118.280126]) .addTo(map).bindPopup("<b>Blah blah Village</b><a href="http://www.cnn.com">Test</a>").openPopup();
-  //.setHTML('<h3><a href="' + feature.properties.link + '">' + feature.properties.Company + '</a></h3>)'
-  //<img src="pic_trulli.jpg" alt="Italian Trulli" style="width:500px;height:600px;">'>
-
   var feature = features[0];
 
   var popup = new mapboxgl.Popup({ offset: [0, -15] })
     .setLngLat(feature.geometry.coordinates)
-    .setHTML('<h5>' + feature.properties.title + '</h6><p>' + feature.properties.description  + '</p>' + '<br>' + '<img src="' + feature.properties.img + '" alt="' + feature.properties.title + '" style="width:50px;height:50px;">' + '<p><a href="' + feature.properties.link + '">' + feature.properties.title + '</a></p>')
+    .setHTML('<h5>' + feature.properties.title + '</h6><p>' + feature.properties.description  + '</p>' + '<br>' + '<img src="' + feature.properties.img + '" alt="' + feature.properties.title + '" style="width:100px;height:150px;">' + '<p><a href="' + feature.properties.link + '">' + feature.properties.title + '</a></p>')
     .setLngLat(feature.geometry.coordinates)
     .addTo(map);
 
